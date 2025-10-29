@@ -1,0 +1,34 @@
+<Auto install>
+1: 
+cd plymouth-theme-mac-black
+or
+cd plymouth-theme-mac-white
+
+2:
+chmod +x install-mac-black-theme.sh
+or
+chmod +x install-mac-white-theme.sh
+
+3:
+sudo ./install-mac-black-theme.sh
+or
+sudo ./install-mac-white-theme.sh
+
+==========================================================
+<Manual install>
+1:
+copy to /usr/share/plymouth/themes/mac-black/
+or
+copy to /usr/share/plymouth/themes/mac-white/
+
+2:
+sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/mac-black/mac-black.plymouth 100
+or
+sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/mac-white/mac-white.plymouth 100
+
+3:
+sudo update-alternatives --config default.plymouth
+
+4:
+sudo update-initramfs -u
+sudo reboot

@@ -1,0 +1,49 @@
+# Plymouth mac Black Theme (plymouth-theme-mac-black)
+# Author: ABATBeliever
+# License: MIT
+
+Window.SetBackgroundTopColor(0.0, 0.0, 0.0);
+Window.SetBackgroundBottomColor(0.0, 0.0, 0.0);
+
+apple_logo = Image("apple-logo.png");
+
+screen_width = Window.GetWidth();
+screen_height = Window.GetHeight();
+
+logo_x = (screen_width - apple_logo.GetWidth()) / 2;
+logo_y = (screen_height - apple_logo.GetHeight()) / 2 - 50;
+
+logo_sprite = Sprite(apple_logo);
+logo_sprite.SetX(logo_x);
+logo_sprite.SetY(logo_y);
+
+progress_bar = ProgressBar();
+progress_bar_width = 200;
+progress_bar_height = 20;
+progress_bar_x = (screen_width - progress_bar_width) / 2;
+progress_bar_y = logo_y + apple_logo.GetHeight() + 60;
+
+progress_bar.SetForegroundColor(1.0, 1.0, 1.0);
+progress_bar.SetBackgroundColor(0.3, 0.3, 0.3);
+progress_bar.SetSize(progress_bar_width, progress_bar_height);
+progress_bar.SetPosition(progress_bar_x, progress_bar_y);
+progress_bar.SetProgress(0.0);
+progress_bar.Show();
+
+fun refresh_callback ()
+{
+    progress_bar.SetProgress(Plymouth.GetProgress());
+}
+
+Plymouth.SetRefreshFunction(refresh_callback);
+
+fun animate_progress ()
+{
+    current = progress_bar.GetProgress();
+    if (current < 1.0) {
+        progress_bar.SetProgress(current + 0.01);
+        Plymouth.Sleep(0.03);
+        animate_progress();
+    }
+}
+animate_progress();

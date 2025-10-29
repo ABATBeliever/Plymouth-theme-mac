@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=mac White Style
+Description=mac-like white boot splash theme for Ubuntu
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/mac-white
+ScriptFile=/usr/share/plymouth/themes/mac-white/mac-white.script

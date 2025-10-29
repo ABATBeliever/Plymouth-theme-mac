@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=mac Black Style
+Description=mac-like black boot splash theme for Ubuntu
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/mac-black
+ScriptFile=/usr/share/plymouth/themes/mac-black/mac-black.script
